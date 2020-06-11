@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <style>
+        </style>
+    </head>
+    <body>
+        <h4>Javascript exercises</h4>
+        <script>
+            //Another way of copying array inside arrays
+            const fruits = ["apple", "orange"];
+            const vegetables = ["carrot", "potato"];
+
+            const result = ['bread', ...vegetables, 'chicken', ...fruits];
+            //console.log(result);     
+
+
+            //Use the map() method to say hello to the users. Use only their firstname
+            //Use the filter() method to congratulate only the Full Stack Residents
+
+            let users = [{ firstName: 'Bradley', lastName: 'Bouley', role: 'Full Stack Resident' },
+             { firstName: 'Chloe', lastName: 'Alnaji', role: 'Full Stack Resident' },
+             { firstName: 'Jonathan', lastName: 'Baughn', role: 'Enterprise Instructor' },
+             { firstName: 'Michael', lastName: 'Herman', role: 'Lead Instructor' },
+             { firstName: 'Robert', lastName: 'Hajek', role: 'Full Stack Resident' },
+             { firstName: 'Wes', lastName: 'Reid', role: 'Instructor'},
+             { firstName: 'Zach', lastName: 'Klabunde', role: 'Instructor'}];
+            
+
+            //Map uses
+            let oldArr = [
+                {'name':'John','last_name':'Doe'},
+                {'name':'John','last_name':'Smith'}
+            ]
+            let newArr = oldArr.map((val)=>{
+                if (val["lastname"]=='Doe'){
+                    return val;
+                }
+            });
+
+            //Filter uses
+            let newArr2 = oldArr.filter((val)=> val['lastname']=='Doe');
+            
+        </script>
+    </body>
+</html>

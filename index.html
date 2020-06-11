@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Bootcamp- Week5 exos</title>
+</head>
+<body>
+	<form method="post" onsubmit="return search_gif()">
+		Search a gif <input type="text" name="name" id="search"><br>
+		<input type="submit" value="Search">
+	</form>
+	<div id="result_gif">
+	</div>
+
+	<script type="text/javascript">
+		var div=document.getElementById("result_gif")
+		var searching=document.getElementById("search").value
+
+		function search_gif(){
+			var request = new XMLHttpRequest()
+
+	      // Open a new connection, using the GET request on the URL endpoint
+	      request.open('GET', 'https://api.giphy.com/v1/gifs/search?q=hilarious&rating=g&api_key=dc6zaTOxFJmzC ', true)
+
+	      request.onreadystatechange = function() {
+	      	var data = JSON.parse(this.response)
+	          //To deal with errors, like the wrong url of bad response
+	        if (request.status >= 200 && request.status < 400) {
+	        	data1= data[0]
+	        	console.log(data1)
+	        	data1.forEach(gif => {	
+	        		if (searching in gif.title) {
+	        			console.log(gif)
+	        			giphy = document.createElement('img')
+	        			giphy.src = gif.url
+	        			title = document.createElement('h3')
+	        			title.textContent = gif.title
+
+	        			div.append(title)
+	        			div.append(giphy)
+	        		}
+	        		//endif search gif
+	        	} )       
+	        }
+	        //end if status
+	      }
+	      //end onload function
+	      request.send()
+  		}
+	</script>
+</body>
+</html>

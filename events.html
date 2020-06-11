@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body onload="mymessage()">
+
+<img id="image" src="smiley.gif" width="160" height="120"
+onmouseover="this.src = 'landscape.jpg';"
+onmouseout="this.src = 'smiley.gif';"
+onclick="this.width=400; ">
+
+<div onmousedown="mDown(this)" onmouseup="mUp(this)"
+style="background-color:#D94A38;width:90px;height:20px;padding:40px;">
+Click Me</div>
+<script>
+	function mDown(obj) {
+  obj.style.backgroundColor = "#1ec5e5";
+  obj.innerHTML = "Release Me";
+}
+
+function mUp(obj) {
+  obj.style.backgroundColor="#D94A38";
+  obj.innerHTML="Thank You";
+}
+function mymessage() {
+  alert("Welcome Jane !");
+}
+</script>
+</body>
+</html>
